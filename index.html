@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guille Angeli — Fotografía arquitectónica, comercial y urbana | Buenos Aires</title>
+  <meta name="description" content="Fotografía profesional de arquitectura, espacios comerciales y paisaje urbano en Buenos Aires. Más de 10 años de experiencia y 200 proyectos realizados. Imágenes que comunican el valor de tu marca." />
+  <link rel="canonical" href="https://guilleangeli.vercel.app/" />
+
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <!-- Open Graph (cómo se ve el link al compartirlo en WhatsApp, LinkedIn, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="Guille Angeli Fotografía" />
+  <meta property="og:title" content="Guille Angeli — Fotografía arquitectónica, comercial y urbana" />
+  <meta property="og:description" content="Fotografía profesional de arquitectura, espacios comerciales y paisaje urbano en Buenos Aires. Cada encuadre, una historia." />
+  <meta property="og:url" content="https://guilleangeli.vercel.app/" />
+  <meta property="og:image" content="https://guilleangeli.vercel.app/assets/galeria/arq-01-memorial-berlin.jpg" />
+  <meta property="og:image:width" content="1500" />
+  <meta property="og:image:height" content="1004" />
+  <meta property="og:image:alt" content="Estelas de hormigón del Memorial del Holocausto de Berlín" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://guilleangeli.vercel.app/assets/galeria/arq-01-memorial-berlin.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Guille Angeli Fotografía",
+    "description": "Fotografía profesional de arquitectura, espacios comerciales y paisaje urbano.",
+    "url": "https://guilleangeli.vercel.app/",
+    "email": "guillermoangeli83@gmail.com",
+    "areaServed": "Buenos Aires, Argentina",
+    "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressCountry": "AR" },
+    "sameAs": ["https://www.instagram.com/ag.obturando/"],
+    "founder": { "@type": "Person", "name": "Guille Angeli", "jobTitle": "Fotógrafo profesional" },
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotografía Arquitectónica" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotografía Comercial" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fotografía Urbana" } }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --negro: #0a0a0a;
+      --oscuro: #111111;
+      --gris: #1a1a1a;
+      --borde: #2a2a2a;
+      --texto: #c8c0b4;
+      --claro: #e8e0d4;
+      --acento: #b8965a;
+      --acento-hover: #d4ac6a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--negro);
+      color: var(--texto);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* CURSOR */
+    * { cursor: none; }
+    .cursor {
+      position: fixed;
+      width: 8px; height: 8px;
+      background: var(--acento);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(184,150,90,0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 2rem 4rem;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+      transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    /* Al scrollear, el menú necesita fondo propio: por debajo pasan fotos claras */
+    nav.nav-fondo {
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--borde);
+      padding: 1.25rem 4rem;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--claro);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--acento); }
+    nav ul {
+      display: flex; gap: 2.5rem;
+      list-style: none;
+    }
+    nav ul a {
+      color: var(--texto);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    nav ul a:hover { color: var(--acento); }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex; align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      padding: 0 4rem 5rem;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(184,150,90,0.03) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(184,150,90,0.06) 0%, transparent 60%),
+        linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.9) 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(184,150,90,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,150,90,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+    }
+    .hero-number {
+      position: absolute;
+      top: 50%; right: 4rem;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(12rem, 20vw, 22rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.14);
+      -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+      line-height: 1;
+      user-select: none;
+      animation: fadeIn 2s ease forwards;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 700px;
+      animation: slideUp 1.2s ease forwards;
+    }
+    .hero-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--acento);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--claro);
+      margin-bottom: 1.5rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--acento);
+    }
+    .hero-desc {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 3rem;
+      opacity: 0.7;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 1.2rem;
+      color: var(--claro);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      border: 1px solid var(--acento);
+      padding: 1rem 2rem;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--acento);
+      transform: translateX(-101%);
+      transition: transform 0.4s ease;
+    }
+    .hero-cta:hover::before { transform: translateX(0); }
+    .hero-cta:hover { color: var(--negro); }
+    .hero-cta span { position: relative; z-index: 1; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 3rem; right: 4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--acento);
+      opacity: 0.6;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, var(--acento), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    /* SECTION BASE */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--acento);
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--claro);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    h2 em { font-style: italic; color: var(--acento); }
+
+    /* SOBRE MI */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      border-top: 1px solid var(--borde);
+    }
+    .about-visual {
+      position: relative;
+      aspect-ratio: 3/4;
+    }
+    .about-frame {
+      position: absolute; inset: 0;
+      border: 1px solid var(--borde);
+    }
+    .about-frame-inner {
+      position: absolute;
+      top: 1.5rem; left: 1.5rem; right: -1.5rem; bottom: -1.5rem;
+      border: 1px solid rgba(184,150,90,0.3);
+    }
+    .about-foto {
+      position: absolute; inset: 0;
+      display: block; overflow: hidden;
+    }
+    .about-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .about-placeholder {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--gris) 0%, var(--oscuro) 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1rem;
+    }
+    .about-placeholder svg {
+      width: 48px; height: 48px;
+      opacity: 0.2;
+    }
+    .about-placeholder p {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.3;
+    }
+    .about-text p {
+      font-size: 0.85rem;
+      line-height: 2;
+      opacity: 0.7;
+      margin-bottom: 1.5rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--borde);
+    }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--acento);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-top: 0.3rem;
+    }
+
+    /* SERVICIOS */
+    .services { border-top: 1px solid var(--borde); }
+    .services-header { margin-bottom: 4rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .service-card {
+      padding: 3rem;
+      border: 1px solid var(--borde);
+      margin: -1px 0 0 -1px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s ease;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--acento);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover { background: var(--gris); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(184,150,90,0.2);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--claro);
+      margin-bottom: 1rem;
+    }
+    .service-card p {
+      font-size: 0.78rem;
+      line-height: 1.9;
+      opacity: 0.6;
+      margin-bottom: 2rem;
+    }
+    .service-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--borde);
+      color: var(--acento);
+      opacity: 0.7;
+    }
+
+    /* PROCESO */
+    .process { border-top: 1px solid var(--borde); background: var(--oscuro); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+    .step {
+      position: relative;
+      padding-top: 2rem;
+    }
+    .step::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 1px;
+      background: var(--borde);
+    }
+    .step::after {
+      content: '';
+      position: absolute;
+      top: -4px; left: 0;
+      width: 8px; height: 8px;
+      background: var(--acento);
+      border-radius: 50%;
+    }
+    .step-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--acento);
+      margin-bottom: 1rem;
+    }
+    .step h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--claro);
+      margin-bottom: 0.8rem;
+    }
+    .step p {
+      font-size: 0.75rem;
+      line-height: 1.8;
+      opacity: 0.55;
+    }
+
+    /* CONTACTO */
+    .contact { border-top: 1px solid var(--borde); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 1.5rem; }
+    .contact-info p {
+      font-size: 0.82rem;
+      line-height: 1.9;
+      opacity: 0.6;
+      margin-bottom: 2.5rem;
+    }
+    .contact-detail {
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      opacity: 0.7;
+    }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      border: 1px solid var(--borde);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-icon svg { width: 14px; height: 14px; opacity: 0.6; }
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .contact-item a:hover,
+    .contact-item a:focus-visible { color: #b8965a; border-bottom-color: #b8965a; }
+
+    /* FORM */
+    .form { display: flex; flex-direction: column; gap: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--acento);
+      opacity: 0.8;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--borde);
+      color: var(--claro);
+      padding: 0.8rem 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+    .form-group select option { background: var(--oscuro); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-bottom-color: var(--acento); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--texto); opacity: 0.65; font-weight: 300; }
+    .form-group textarea { resize: none; height: 100px; }
+    .form-submit {
+      display: inline-flex; align-items: center; gap: 1.5rem;
+      background: transparent;
+      border: 1px solid var(--acento);
+      color: var(--claro);
+      padding: 1.1rem 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: none;
+      transition: all 0.4s;
+      position: relative; overflow: hidden;
+      align-self: flex-start;
+    }
+    .form-submit::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--acento);
+      transform: translateX(-101%);
+      transition: transform 0.4s ease;
+    }
+    .form-submit:hover::before { transform: translateX(0); }
+    .form-submit:hover { color: var(--negro); }
+    .form-submit span { position: relative; z-index: 1; }
+    .arrow { font-size: 1rem; position: relative; z-index: 1; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--borde);
+      padding: 2.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.65);
+    }
+    footer a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    footer a:hover, footer a:focus-visible { color: #b8965a; border-bottom-color: #b8965a; }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* En táctil no hay mousemove: el cursor custom se queda clavado en su posición
+       inicial en vez de seguir el dedo, así que directamente se oculta. */
+    @media (pointer: coarse) {
+      .cursor, .cursor-ring { display: none !important; }
+    }
+
+    /* PORTFOLIO */
+    .portfolio { background: var(--oscuro); }
+    .portfolio-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem;
+    }
+    .filtros { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filtro {
+      background: none;
+      border: 1px solid var(--borde);
+      color: var(--texto);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+    .filtro:hover { color: var(--claro); border-color: var(--acento); }
+    .filtro[aria-pressed="true"] {
+      color: var(--negro); background: var(--acento); border-color: var(--acento);
+    }
+
+    /* Columnas reales (no CSS `columns`, que sin altura fija no balancea y deja
+       huecos si una columna termina antes que las otras — ver galeria-masonry.js) */
+    .galeria { display: flex; gap: 1rem; align-items: flex-start; }
+    .galeria-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1rem; }
+    .pieza {
+      break-inside: avoid;
+      margin: 0 0 1rem;
+      padding: 0;
+      border: none;
+      background: var(--gris);
+      display: block;
+      width: 100%;
+      cursor: zoom-in;
+      position: relative;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .pieza img {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
+    }
+    .pieza::after {
+      content: attr(data-rubro);
+      position: absolute; left: 0; bottom: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--claro);
+      background: rgba(10,10,10,0.75);
+      padding: 0.5rem 0.9rem;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .pieza:hover img, .pieza:focus-visible img { transform: scale(1.04); }
+    .pieza:hover::after, .pieza:focus-visible::after { opacity: 1; transform: translateY(0); }
+    .pieza[hidden] { display: none; }
+
+    /* LIGHTBOX */
+    .visor {
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(6,6,6,0.96);
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 3rem;
+    }
+    .visor[open] { display: flex; }
+    .visor img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .visor-cerrar {
+      position: absolute; top: 1.5rem; right: 2rem;
+      background: none; border: none; color: var(--claro);
+      font-size: 2rem; line-height: 1; cursor: pointer; padding: 0.5rem;
+    }
+    .visor-cerrar:hover { color: var(--acento); }
+    .visor-spinner {
+      position: absolute;
+      width: 42px; height: 42px;
+      border: 2px solid rgba(184,150,90,0.25);
+      border-top-color: var(--acento);
+      border-radius: 50%;
+      display: none;
+      animation: girar 0.8s linear infinite;
+    }
+    .visor.cargando .visor-spinner { display: block; }
+    .visor.cargando #visorImg { opacity: 0; }
+    #visorImg { transition: opacity 0.25s ease; }
+    @keyframes girar { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .visor-spinner { animation: none; border-top-color: rgba(184,150,90,0.25); }
+    }
+    .visor-pie {
+      position: absolute; bottom: 1.6rem; left: 0; right: 0; text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--texto);
+    }
+
+    .form-status {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      min-height: 1.2em;
+    }
+    .form-status.ok { color: #b8965a; }
+    .form-status.error { color: #d98a7a; }
+    .form-submit[disabled] { opacity: 0.6; cursor: default; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.5rem 2rem; }
+      nav ul { display: none; }
+      section { padding: 5rem 2rem; }
+      .hero { padding: 0 2rem 4rem; }
+      .about { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .portfolio-header { align-items: flex-start; }
+      .visor { padding: 1.5rem; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .hero-number { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">G<span>.</span>Angeli</a>
+    <ul>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#process">Proceso</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-number">GA</div>
+    <div class="hero-content">
+      <div class="hero-tag">Fotografía profesional · Buenos Aires</div>
+      <h1>La imagen<br>que <em>define</em><br>tu marca</h1>
+      <p class="hero-desc">Fotografía arquitectónica, urbana y comercial con visión artística. Cada encuadre, una historia.</p>
+      <a href="#contact" class="hero-cta">
+        <span>Hablemos de tu proyecto</span>
+        <span>→</span>
+      </a>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="about">
+    <div class="about reveal">
+      <div class="about-visual">
+        <div class="about-frame"></div>
+        <div class="about-frame-inner"></div>
+        <picture class="about-foto">
+          <source srcset="assets/galeria/retrato-guille.webp" type="image/webp">
+          <img src="assets/galeria/retrato-guille.jpg" alt="Guille Angeli fotografiando en la costa" loading="lazy" width="1500" height="1126">
+        </picture>
+      </div>
+      <div class="about-text">
+        <div class="section-label">Sobre mí</div>
+        <h2>Visión que<br><em>trasciende</em></h2>
+        <p>Soy Guille Angeli, fotógrafo profesional especializado en arquitectura, paisaje urbano y fotografía comercial. Con base en Buenos Aires y proyectos en Europa y Argentina, combino técnica precisa con una mirada artística que distingue cada imagen.</p>
+        <p>Mi trabajo se enfoca en la geometría, la luz y la narrativa visual — elementos que convierten una fotografía en una herramienta de comunicación poderosa para empresas y marcas.</p>
+        <div class="about-stats">
+          <div>
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div>
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Proyectos realizados</div>
+          </div>
+          <div>
+            <div class="stat-number">3</div>
+            <div class="stat-label">Países cubiertos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="services" class="services">
+    <div class="services-header reveal">
+      <div class="section-label">Servicios</div>
+      <h2>Lo que puedo<br>hacer por tu <em>empresa</em></h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Fotografía Arquitectónica</h3>
+        <p>Capturo la esencia de espacios y estructuras con precisión técnica y sensibilidad artística. Ideal para estudios de arquitectura, inmobiliarias y constructoras.</p>
+        <div class="service-tags">
+          <span class="tag">Exterior</span>
+          <span class="tag">Interior</span>
+          <span class="tag">Detalle</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Fotografía Comercial</h3>
+        <p>Imágenes de alto impacto para campañas publicitarias, redes sociales y comunicación corporativa. Tu marca, con la imagen que se merece.</p>
+        <div class="service-tags">
+          <span class="tag">Branding</span>
+          <span class="tag">Producto</span>
+          <span class="tag">Editorial</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Fotografía Urbana</h3>
+        <p>La ciudad como escenario. Retratos de entornos urbanos, street photography y documentación de la vida cotidiana con mirada narrativa.</p>
+        <div class="service-tags">
+          <span class="tag">Street</span>
+          <span class="tag">Paisaje</span>
+          <span class="tag">Reportaje</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="portfolio">
+    <div class="portfolio-header reveal">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2>Trabajos<br><em>seleccionados</em></h2>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar por rubro">
+        <button type="button" class="filtro" data-filtro="todas" aria-pressed="true">Todas</button>
+        <button type="button" class="filtro" data-filtro="arquitectonica" aria-pressed="false">Arquitectónica</button>
+        <button type="button" class="filtro" data-filtro="urbana" aria-pressed="false">Urbana</button>
+        <button type="button" class="filtro" data-filtro="comercial" aria-pressed="false">Comercial</button>
+        <button type="button" class="filtro" data-filtro="paisaje" aria-pressed="false">Paisaje</button>
+      </div>
+    </div>
+
+    <div class="galeria reveal" id="galeria">
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="Memorial del Holocausto — Berlín">
+        <picture>
+          <source srcset="assets/galeria/arq-01-memorial-berlin.webp" type="image/webp">
+          <img src="assets/galeria/arq-01-memorial-berlin.jpg" alt="Estelas de hormigón del Memorial del Holocausto de Berlín en perspectiva" loading="lazy" width="1500" height="1004">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Buenos Aires no duerme">
+        <picture>
+          <source srcset="assets/galeria/urb-01-buenos-aires-noche.webp" type="image/webp">
+          <img src="assets/galeria/urb-01-buenos-aires-noche.jpg" alt="Vista aérea nocturna de Buenos Aires con el Congreso iluminado" loading="lazy" width="1500" height="1020">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="comercial" data-rubro="Comercial" data-titulo="Copas al atardecer">
+        <picture>
+          <source srcset="assets/galeria/com-01-copas-atardecer.webp" type="image/webp">
+          <img src="assets/galeria/com-01-copas-atardecer.jpg" alt="Dos copas de vino recortadas contra el cielo del atardecer" loading="lazy" width="1500" height="1852">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="Coliseo — interior">
+        <picture>
+          <source srcset="assets/galeria/arq-02-coliseo-interior.webp" type="image/webp">
+          <img src="assets/galeria/arq-02-coliseo-interior.jpg" alt="Galería de arcos en el interior del Coliseo romano" loading="lazy" width="1080" height="1456">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="El último turno">
+        <picture>
+          <source srcset="assets/galeria/urb-02-ultimo-turno.webp" type="image/webp">
+          <img src="assets/galeria/urb-02-ultimo-turno.jpg" alt="Barrendero trabajando de noche, fotografía en blanco y negro" loading="lazy" width="1500" height="2478">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="Facultad de Derecho — UBA">
+        <picture>
+          <source srcset="assets/galeria/arq-03-facultad-derecho.webp" type="image/webp">
+          <img src="assets/galeria/arq-03-facultad-derecho.jpg" alt="Fachada con columnas de la Facultad de Derecho de la UBA" loading="lazy" width="1272" height="666">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Verde en serie">
+        <picture>
+          <source srcset="assets/galeria/urb-03-verde-en-serie.webp" type="image/webp">
+          <img src="assets/galeria/urb-03-verde-en-serie.jpg" alt="Avenida arbolada de noche con semáforos en verde reflejados en el asfalto" loading="lazy" width="1500" height="2500">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="comercial" data-rubro="Comercial" data-titulo="Postre">
+        <picture>
+          <source srcset="assets/galeria/com-03-postre.webp" type="image/webp">
+          <img src="assets/galeria/com-03-postre.jpg" alt="Postre de chocolate emplatado en restaurante" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="2.000 años en un segundo">
+        <picture>
+          <source srcset="assets/galeria/arq-04-coliseo-noche.webp" type="image/webp">
+          <img src="assets/galeria/arq-04-coliseo-noche.jpg" alt="El Coliseo romano iluminado de noche en larga exposición" loading="lazy" width="1500" height="1006">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="El andén del arte">
+        <picture>
+          <source srcset="assets/galeria/urb-04-anden-del-arte.webp" type="image/webp">
+          <img src="assets/galeria/urb-04-anden-del-arte.jpg" alt="Túnel de subte iluminado con luces violetas" loading="lazy" width="1365" height="686">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="comercial" data-rubro="Comercial" data-titulo="Sobre vidrios de mar">
+        <picture>
+          <source srcset="assets/galeria/com-04-combi.webp" type="image/webp">
+          <img src="assets/galeria/com-04-combi.jpg" alt="Combi Volkswagen en miniatura sobre una playa de vidrios de mar" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="Reichstag — Berlín">
+        <picture>
+          <source srcset="assets/galeria/arq-07-reichstag.webp" type="image/webp">
+          <img src="assets/galeria/arq-07-reichstag.jpg" alt="Fachada del edificio del Reichstag en Berlín con banderas alemanas" loading="lazy" width="1500" height="1004">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="Faro en la costa">
+        <picture>
+          <source srcset="assets/galeria/arq-08-faro.webp" type="image/webp">
+          <img src="assets/galeria/arq-08-faro.jpg" alt="Faro blanco sobre costa rocosa, fotografía en blanco y negro" loading="lazy" width="1200" height="1200">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="Buzón de Correos">
+        <picture>
+          <source srcset="assets/galeria/arq-09-correos.webp" type="image/webp">
+          <img src="assets/galeria/arq-09-correos.jpg" alt="Buzón postal antiguo de metal, fotografía en blanco y negro" loading="lazy" width="1440" height="1440">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="arquitectonica" data-rubro="Arquitectónica" data-titulo="El Paraíso Perdido">
+        <picture>
+          <source srcset="assets/galeria/arq-10-paraiso-perdido.webp" type="image/webp">
+          <img src="assets/galeria/arq-10-paraiso-perdido.jpg" alt="Puerta antigua de madera con herrajes de hierro y cartel tallado &quot;El Paraíso Perdido&quot;" loading="lazy" width="1500" height="2000">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Cierre de persiana">
+        <picture>
+          <source srcset="assets/galeria/urb-05-persiana.webp" type="image/webp">
+          <img src="assets/galeria/urb-05-persiana.jpg" alt="Dos personas caminando junto a una persiana metálica, blanco y negro" loading="lazy" width="1337" height="1454">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Trabajador en la calle">
+        <picture>
+          <source srcset="assets/galeria/urb-06-trabajador.webp" type="image/webp">
+          <img src="assets/galeria/urb-06-trabajador.jpg" alt="Trabajador con herramientas en una plaza, fotografía en blanco y negro" loading="lazy" width="1500" height="994">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Embotellamiento al atardecer">
+        <picture>
+          <source srcset="assets/galeria/urb-07-embotellamiento.webp" type="image/webp">
+          <img src="assets/galeria/urb-07-embotellamiento.jpg" alt="Tráfico detenido bajo un cielo naranja de atardecer" loading="lazy" width="1280" height="1280">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Puerta del Muro de Berlín">
+        <picture>
+          <source srcset="assets/galeria/urb-08-muro-berlin.webp" type="image/webp">
+          <img src="assets/galeria/urb-08-muro-berlin.jpg" alt="Portón enrejado con mural colorido en un tramo del Muro de Berlín" loading="lazy" width="1500" height="2240">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Avenida arbolada">
+        <picture>
+          <source srcset="assets/galeria/urb-09-avenida-arbolada.webp" type="image/webp">
+          <img src="assets/galeria/urb-09-avenida-arbolada.jpg" alt="Motocicleta policial con dos oficiales y dos perros cruzando una avenida arbolada" loading="lazy" width="1440" height="754">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Mural en la escalera">
+        <picture>
+          <source srcset="assets/galeria/urb-10-mural-escalera.webp" type="image/webp">
+          <img src="assets/galeria/urb-10-mural-escalera.jpg" alt="Escalinata pintada con un mural de arte urbano, blanco y negro" loading="lazy" width="1439" height="1440">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Loba capitolina al atardecer">
+        <picture>
+          <source srcset="assets/galeria/urb-11-loba-capitolina.webp" type="image/webp">
+          <img src="assets/galeria/urb-11-loba-capitolina.jpg" alt="Estatua de la loba capitolina sobre una columna, cielo naranja de atardecer" loading="lazy" width="500" height="376">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Fiat 500 clásico">
+        <picture>
+          <source srcset="assets/galeria/urb-12-fiat-500.webp" type="image/webp">
+          <img src="assets/galeria/urb-12-fiat-500.jpg" alt="Auto Fiat 500 amarillo estacionado en la calle, blanco y negro" loading="lazy" width="1195" height="1594">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Paseo costero">
+        <picture>
+          <source srcset="assets/galeria/urb-13-paseo-costero.webp" type="image/webp">
+          <img src="assets/galeria/urb-13-paseo-costero.jpg" alt="Paseo peatonal junto al agua con edificios de fondo, día nublado" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Obelisco y cañón">
+        <picture>
+          <source srcset="assets/galeria/urb-14-obelisco-canon.webp" type="image/webp">
+          <img src="assets/galeria/urb-14-obelisco-canon.jpg" alt="Monumento con obelisco y cañón antiguo en una plaza" loading="lazy" width="1440" height="926">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Espejo retrovisor">
+        <picture>
+          <source srcset="assets/galeria/urb-15-espejo-retrovisor.webp" type="image/webp">
+          <img src="assets/galeria/urb-15-espejo-retrovisor.jpg" alt="Reflejo de árboles y cielo en el espejo retrovisor de un auto" loading="lazy" width="1440" height="1082">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Pulpo de mosaico">
+        <picture>
+          <source srcset="assets/galeria/urb-16-pulpo-mosaico.webp" type="image/webp">
+          <img src="assets/galeria/urb-16-pulpo-mosaico.jpg" alt="Escultura de pulpo revestida en mosaico frente al mar, al amanecer" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="León en silueta">
+        <picture>
+          <source srcset="assets/galeria/urb-17-leon-silueta.webp" type="image/webp">
+          <img src="assets/galeria/urb-17-leon-silueta.jpg" alt="Estatua de león a contraluz contra un cielo despejado" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Candados del amor">
+        <picture>
+          <source srcset="assets/galeria/urb-18-candados-amor.webp" type="image/webp">
+          <img src="assets/galeria/urb-18-candados-amor.jpg" alt="Cúmulo de candados sobre una baranda, fotografía en blanco y negro" loading="lazy" width="1280" height="1280">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Camión abandonado">
+        <picture>
+          <source srcset="assets/galeria/urb-19-camion-abandonado.webp" type="image/webp">
+          <img src="assets/galeria/urb-19-camion-abandonado.jpg" alt="Camión antiguo abandonado en un descampado, blanco y negro" loading="lazy" width="1279" height="1674">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="En la plaza">
+        <picture>
+          <source srcset="assets/galeria/urb-20-banco-plaza.webp" type="image/webp">
+          <img src="assets/galeria/urb-20-banco-plaza.jpg" alt="Grupo de bailarines urbanos haciendo acrobacias en una plaza de Berlín" loading="lazy" width="1500" height="1004">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="Hojas Caídas — Berlín">
+        <picture>
+          <source srcset="assets/galeria/urb-21-textura-botones.webp" type="image/webp">
+          <img src="assets/galeria/urb-21-textura-botones.jpg" alt="Placas de hierro con rostros tallados, instalación memorial Hojas Caídas del Museo Judío de Berlín" loading="lazy" width="1500" height="1004">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="urbana" data-rubro="Urbana" data-titulo="SPQR">
+        <picture>
+          <source srcset="assets/galeria/urb-22-spqr.webp" type="image/webp">
+          <img src="assets/galeria/urb-22-spqr.jpg" alt="Relieve en piedra de la loba capitolina con la inscripción SPQR" loading="lazy" width="695" height="870">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="comercial" data-rubro="Comercial" data-titulo="Copa con vista a la ciudad">
+        <picture>
+          <source srcset="assets/galeria/com-05-copa-ciudad.webp" type="image/webp">
+          <img src="assets/galeria/com-05-copa-ciudad.jpg" alt="Copa de vino junto a una baranda con vista panorámica de la ciudad al atardecer" loading="lazy" width="1440" height="754">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="comercial" data-rubro="Comercial" data-titulo="Brindis íntimo">
+        <picture>
+          <source srcset="assets/galeria/com-07-brindis.webp" type="image/webp">
+          <img src="assets/galeria/com-07-brindis.jpg" alt="Copa de vino tinto junto a una guirnalda de luces cálidas" loading="lazy" width="768" height="1284">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="comercial" data-rubro="Comercial" data-titulo="Amasando">
+        <picture>
+          <source srcset="assets/galeria/com-08-amasando.webp" type="image/webp">
+          <img src="assets/galeria/com-08-amasando.jpg" alt="Manos amasando sobre un carrito de comida callejera, blanco y negro" loading="lazy" width="1440" height="1440">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="El arco y el sol">
+        <picture>
+          <source srcset="assets/galeria/pai-01-arco-sol.webp" type="image/webp">
+          <img src="assets/galeria/pai-01-arco-sol.jpg" alt="Arco de piedra recortado contra el sol del atardecer" loading="lazy" width="960" height="1280">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="Dolmen al atardecer">
+        <picture>
+          <source srcset="assets/galeria/pai-02-dolmen.webp" type="image/webp">
+          <img src="assets/galeria/pai-02-dolmen.jpg" alt="Estructura de piedra en silueta contra un cielo de atardecer" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="Árbol y reflejo">
+        <picture>
+          <source srcset="assets/galeria/pai-03-arbol-reflejo.webp" type="image/webp">
+          <img src="assets/galeria/pai-03-arbol-reflejo.jpg" alt="Árbol solitario reflejado en el agua al atardecer" loading="lazy" width="768" height="768">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="Mare Tranquillitatis">
+        <picture>
+          <source srcset="assets/galeria/pai-04-luna-llena.webp" type="image/webp">
+          <img src="assets/galeria/pai-04-luna-llena.jpg" alt="Fotografía de la luna llena en primer plano" loading="lazy" width="1500" height="1386">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="Dunas">
+        <picture>
+          <source srcset="assets/galeria/pai-05-dunas.webp" type="image/webp">
+          <img src="assets/galeria/pai-05-dunas.jpg" alt="Dunas de arena con una persona caminando a lo lejos" loading="lazy" width="1440" height="810">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="Sendero entre rocas">
+        <picture>
+          <source srcset="assets/galeria/pai-06-sendero-rocoso.webp" type="image/webp">
+          <img src="assets/galeria/pai-06-sendero-rocoso.jpg" alt="Camino de piedra entre paredones cubiertos de musgo" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="Muelle pesquero">
+        <picture>
+          <source srcset="assets/galeria/pai-07-muelle.webp" type="image/webp">
+          <img src="assets/galeria/pai-07-muelle.jpg" alt="Barcos de pesca amarrados en el muelle" loading="lazy" width="1500" height="1126">
+        </picture>
+      </button>
+      <button type="button" class="pieza" data-cat="paisaje" data-rubro="Paisaje" data-titulo="Silencio en flor">
+        <picture>
+          <source srcset="assets/galeria/pai-08-flor.webp" type="image/webp">
+          <img src="assets/galeria/pai-08-flor.jpg" alt="Flor blanca con centro rosado en primer plano" loading="lazy" width="1500" height="1866">
+        </picture>
+      </button>
+    </div>
+  </section>
+
+  <!-- VISOR -->
+  <div class="visor" id="visor" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+    <button type="button" class="visor-cerrar" id="visorCerrar" aria-label="Cerrar">&times;</button>
+    <div class="visor-spinner" aria-hidden="true"></div>
+    <img id="visorImg" src="" alt="">
+    <div class="visor-pie" id="visorPie"></div>
+  </div>
+
+  <!-- PROCESO -->
+  <section id="process" class="process">
+    <div class="reveal">
+      <div class="section-label">Cómo trabajo</div>
+      <h2>Un proceso<br><em>claro</em> y preciso</h2>
+    </div>
+    <div class="process-steps reveal">
+      <div class="step">
+        <div class="step-num">01 — Consulta</div>
+        <h3>Primera reunión</h3>
+        <p>Entendemos tus objetivos, el estilo de tu marca y los resultados que esperás de las imágenes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02 — Planificación</div>
+        <h3>Concepto visual</h3>
+        <p>Desarrollamos juntos el concepto estético, la locación, los ángulos y la paleta de la sesión.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03 — Producción</div>
+        <h3>La sesión</h3>
+        <p>Ejecución profesional con equipamiento de alta gama. Atención a cada detalle de luz y composición.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04 — Entrega</div>
+        <h3>Imágenes finales</h3>
+        <p>Edición profesional y entrega en los formatos que necesitás, listos para usar en cualquier plataforma.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <div class="section-label">Contacto</div>
+        <h2>Hablemos de<br>tu <em>proyecto</em></h2>
+        <p>Cada proyecto es único. Contame qué necesitás y te armo una propuesta a medida en menos de 48 horas.</p>
+        <div class="contact-detail">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.63a16 16 0 006.29 6.29l1.95-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            Buenos Aires, Argentina
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <a href="mailto:guillermoangeli83@gmail.com">guillermoangeli83@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <a href="https://www.instagram.com/ag.obturando/" target="_blank" rel="noopener">@ag.obturando</a>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="form" name="contacto" method="POST" onsubmit="handleSubmit(event)">
+          <p style="display:none"><label>No completar este campo: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-nombre">Nombre</label>
+              <input id="f-nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-empresa">Empresa</label>
+            <input id="f-empresa" name="empresa" type="text" placeholder="Nombre de tu empresa (opcional)" autocomplete="organization" />
+          </div>
+          <div class="form-group">
+            <label for="f-servicio">Servicio de interés</label>
+            <select id="f-servicio" name="servicio">
+              <option value="">Seleccioná un servicio</option>
+              <option>Fotografía Arquitectónica</option>
+              <option>Fotografía Comercial</option>
+              <option>Fotografía Urbana</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-mensaje">Mensaje</label>
+            <textarea id="f-mensaje" name="mensaje" placeholder="Contame sobre tu proyecto..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span>Enviar mensaje</span>
+            <span class="arrow">→</span>
+          </button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Guille Angeli Fotografía</span>
+    <span>Buenos Aires · Argentina</span>
+    <span>Diseñado por <a href="https://eltanodesign.com.ar" target="_blank" rel="noopener">El Tano Design</a></span>
+    <span>Seguinos: <a href="https://www.instagram.com/ag.obturando/" target="_blank" rel="noopener">@ag.obturando</a></span>
+  </footer>
+
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // El menú toma fondo apenas se sale del hero (abajo pasan fotos claras)
+    const navEl = document.querySelector('nav');
+    const alternarFondoNav = () => navEl.classList.toggle('nav-fondo', window.scrollY > 80);
+    alternarFondoNav();
+    window.addEventListener('scroll', alternarFondoNav, { passive: true });
+
+    // Masonry real: reparte cada .pieza en la columna con menos altura acumulada
+    // (estimada por su relación de aspecto width/height, ya conocida de antemano
+    // por los atributos del <img>). Reemplaza a `columns: 3`, que sin altura fija
+    // solo llena columnas en orden y deja huecos negros si una termina antes.
+    (function armarMasonry() {
+      const galeria = document.getElementById('galeria');
+      const items = [...galeria.children];
+      const numCols = window.matchMedia('(max-width: 900px)').matches ? 2 : 3;
+      const cols = Array.from({ length: numCols }, () => {
+        const col = document.createElement('div');
+        col.className = 'galeria-col';
+        return col;
+      });
+      const alturas = new Array(numCols).fill(0);
+      items.forEach(item => {
+        const img = item.querySelector('img');
+        const w = Number(img.getAttribute('width')) || 1;
+        const h = Number(img.getAttribute('height')) || 1;
+        let destino = 0;
+        for (let i = 1; i < numCols; i++) if (alturas[i] < alturas[destino]) destino = i;
+        cols[destino].appendChild(item);
+        alturas[destino] += h / w;
+      });
+      galeria.replaceChildren(...cols);
+    })();
+
+    // Filtros del portfolio
+    const filtros = document.querySelectorAll('.filtro');
+    const piezas = document.querySelectorAll('.pieza');
+    filtros.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const f = btn.dataset.filtro;
+        filtros.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+        piezas.forEach(p => { p.hidden = !(f === 'todas' || p.dataset.cat === f); });
+      });
+    });
+
+    // Visor (lightbox)
+    const visor = document.getElementById('visor');
+    const visorImg = document.getElementById('visorImg');
+    const visorPie = document.getElementById('visorPie');
+    let ultimoFoco = null;
+
+    function abrirVisor(pieza) {
+      const img = pieza.querySelector('img');
+      const webp = pieza.querySelector('source');
+      ultimoFoco = pieza;
+      visor.classList.add('cargando');
+      visorImg.src = webp ? webp.srcset : img.src;
+      visorImg.alt = img.alt;
+      visorPie.textContent = pieza.dataset.titulo + ' · ' + pieza.dataset.rubro;
+      visor.setAttribute('open', '');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('visorCerrar').focus();
+      if (visorImg.complete) visor.classList.remove('cargando');
+    }
+    visorImg.addEventListener('load', () => visor.classList.remove('cargando'));
+    visorImg.addEventListener('error', () => visor.classList.remove('cargando'));
+    function cerrarVisor() {
+      visor.removeAttribute('open');
+      visorImg.src = '';
+      document.body.style.overflow = '';
+      if (ultimoFoco) ultimoFoco.focus();
+    }
+    piezas.forEach(p => p.addEventListener('click', () => abrirVisor(p)));
+    document.getElementById('visorCerrar').addEventListener('click', cerrarVisor);
+    visor.addEventListener('click', e => { if (e.target === visor) cerrarVisor(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && visor.hasAttribute('open')) cerrarVisor(); });
+
+    // Form submit — envía de verdad a Netlify Forms
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      const label = btn.querySelector('span');
+      const status = form.querySelector('.form-status');
+      const original = 'Enviar mensaje';
+
+      btn.disabled = true;
+      label.textContent = 'Enviando…';
+      status.textContent = '';
+      status.className = 'form-status';
+
+      try {
+        const data = Object.fromEntries(new FormData(form));
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        form.reset();
+        label.textContent = '✓ Mensaje enviado';
+        status.textContent = 'Gracias. Te respondo a la brevedad.';
+        status.className = 'form-status ok';
+      } catch (err) {
+        label.textContent = original;
+        status.textContent = 'No se pudo enviar. Escribime directo a guillermoangeli83@gmail.com';
+        status.className = 'form-status error';
+      } finally {
+        setTimeout(() => { label.textContent = original; btn.disabled = false; }, 4000);
+      }
+    }
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+.vercel
+node_modules/
+fotos-originales/
+_repetidas/
+_thumbs/
