@@ -1,4 +1,6 @@
 .vercel
+.env
+.env.*
 node_modules/
 fotos-originales/
 _repetidas/

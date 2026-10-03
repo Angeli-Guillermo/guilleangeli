@@ -35,11 +35,19 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true });
   }
 
-  if (!nombre || !email || !EMAIL_RE.test(email)) {
+  // Re-chequeo auditoría (03-oct-2026, Codex): `!nombre`/`!email` solo
+  // descartaba valores falsy -- un array u objeto pasaba igual, y no se
+  // exigía mensaje aunque el formulario HTML lo marca como obligatorio (el
+  // servidor lo reemplazaba por "(sin mensaje)" en silencio).
+  if (
+    typeof nombre !== 'string' || !nombre.trim() || nombre.length > 200 ||
+    typeof email !== 'string' || !EMAIL_RE.test(email) ||
+    typeof mensaje !== 'string' || !mensaje.trim()
+  ) {
     return res.status(400).json({ error: 'Faltan campos requeridos o el email no es válido' });
   }
 
-  if (mensaje && mensaje.length > 5000) {
+  if (mensaje.length > 5000) {
     return res.status(400).json({ error: 'Mensaje demasiado largo' });
   }
 
